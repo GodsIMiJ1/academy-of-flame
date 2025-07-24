@@ -29,6 +29,8 @@ const App = () => (
             <Route path="/auth" element={<AuthPage />} />
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/courses/:courseId" element={<CourseDetailPage />} />
+            <Route path="/course/sovereign-ai" element={<SovereignAICoursePage />} />
+            <Route path="/course/technical-mastery" element={<ForgingFlameCoursePage />} />
             <Route path="/sovereign-ai" element={<SovereignAICoursePage />} />
             <Route path="/forging-flame" element={<ForgingFlameCoursePage />} />
             <Route path="/payment" element={<PaymentPage />} />

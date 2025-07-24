@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* REFLECT Academy - Light theme (fallback) */
+    --background: 210 11% 96%;
+    --foreground: 20 100% 90%;
+
+    --card: 210 11% 96%;
+    --card-foreground: 20 100% 90%;
+
+    --popover: 210 11% 96%;
+    --popover-foreground: 20 100% 90%;
+
+    --primary: 20 100% 60%; /* Flame Orange */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 20 100% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 20 100% 60%;
+    --input: 212 15% 15%;
+    --ring: 20 100% 60%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* REFLECT Academy - Dark theme (primary) - Deep Obsidian */
+    --background: 210 11% 4%; /* Deep obsidian background */
+    --foreground: 20 100% 90%; /* Warm white text */
+
+    --card: 210 15% 8%; /* Slightly lighter obsidian for cards */
+    --card-foreground: 20 100% 90%;
+
+    --popover: 210 15% 8%;
+    --popover-foreground: 20 100% 90%;
+
+    --primary: 20 100% 60%; /* Flame Orange */
+    --primary-foreground: 210 11% 4%;
+
+    --secondary: 210 15% 12%; /* Dark secondary */
+    --secondary-foreground: 20 100% 90%;
+
+    --muted: 210 15% 10%;
+    --muted-foreground: 20 30% 70%; /* Muted flame */
+
+    --accent: 20 100% 60%; /* Flame Orange accent */
+    --accent-foreground: 210 11% 4%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 20 60% 30%; /* Dim flame border */
+    --input: 210 15% 12%; /* Dark input background */
+    --ring: 20 100% 60%; /* Bright flame focus ring */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* REFLECT Academy Custom Styles */
+@layer components {
+  .glow-input {
+    @apply focus:ring-2 focus:ring-primary focus:shadow-lg focus:shadow-primary/20 transition-all duration-300;
+  }
+  
+  .flame-glow {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  
+  .glyph-watermark {
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 10 L70 30 L70 50 L90 50 L70 70 L70 90 L50 70 L30 90 L30 70 L10 50 L30 30 L30 10 Z' fill='%23ff6b35' /%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+  }
+
+  /* Sacred NODE Image Optimization */
+  .node-logo {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  .node-hero {
+    filter: drop-shadow(0 0 30px hsl(var(--primary) / 0.4));
+    animation: sacred-glow 4s ease-in-out infinite alternate;
+  }
+
+  @keyframes sacred-glow {
+    0% { filter: drop-shadow(0 0 30px hsl(var(--primary) / 0.4)); }
+    100% { filter: drop-shadow(0 0 50px hsl(var(--primary) / 0.6)); }
+  }
+  
+  .pulse-border {
+    animation: pulse-border 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-border {
+    0%, 100% { border-color: hsl(var(--primary) / 0.3); }
+    50% { border-color: hsl(var(--primary) / 0.8); }
+  }
+}

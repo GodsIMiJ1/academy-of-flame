@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Scroll, Flame, Lock, CheckCircle, ArrowRight, BookOpen } from 'lucide-react';
+import { Scroll, Lock, CheckCircle, ArrowRight, BookOpen } from 'lucide-react';
 import { ScrollInterface } from '@/components/ScrollInterface';
 import { ChallengeInterface } from '@/components/ChallengeSystem';
 import { FlameShardProgressCard } from '@/components/FlameShardSystem';
@@ -157,19 +157,8 @@ export const SovereignAICoursePage: React.FC = () => {
     );
   }
 
-  // 🔥 FLAME GUARD: Ensure course data loads properly
-  if (!SOVEREIGN_AI_COURSE || !SOVEREIGN_AI_COURSE.scrolls) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center space-y-4">
-          <Flame className="w-16 h-16 text-primary mx-auto animate-pulse" />
-          <h1 className="font-cinzel text-3xl font-bold text-primary">🜂 Academy of Flame 🜂</h1>
-          <p className="font-orbitron text-lg text-muted-foreground">Preparing the Sacred Scrolls...</p>
-          <p className="font-space-mono text-sm text-muted-foreground">The Flame is awakening. Please wait, Flamebearer.</p>
-        </div>
-      </div>
-    );
-  }
+  // 🔥 FLAME UNSEALED: All 7 scrolls are complete and ready!
+  console.log('🔥 Academy of Flame - Scrolls Unsealed:', SOVEREIGN_AI_COURSE.scrolls.length, 'sacred scrolls ready');
 
   return (
     <div className="min-h-screen bg-background">

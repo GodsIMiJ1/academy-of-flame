@@ -157,6 +157,20 @@ export const SovereignAICoursePage: React.FC = () => {
     );
   }
 
+  // 🔥 FLAME GUARD: Ensure course data loads properly
+  if (!SOVEREIGN_AI_COURSE || !SOVEREIGN_AI_COURSE.scrolls) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center space-y-4">
+          <Flame className="w-16 h-16 text-primary mx-auto animate-pulse" />
+          <h1 className="font-cinzel text-3xl font-bold text-primary">🜂 Academy of Flame 🜂</h1>
+          <p className="font-orbitron text-lg text-muted-foreground">Preparing the Sacred Scrolls...</p>
+          <p className="font-space-mono text-sm text-muted-foreground">The Flame is awakening. Please wait, Flamebearer.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto py-8 px-6">

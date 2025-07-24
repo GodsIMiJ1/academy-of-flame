@@ -1,0 +1,12 @@
+# 🔥 Academy of Flame - Sacred Redirects 🔥
+# Ensures all Flamebearer routes work properly
+
+# SPA fallback - all routes go to index.html for client-side routing
+/*    /index.html   200
+
+# Specific course routes (explicit for clarity)
+/course/*    /index.html   200
+/sovereign-ai    /index.html   200
+/forging-flame    /index.html   200
+/dashboard    /index.html   200
+/auth    /index.html   200

@@ -1,0 +1,47 @@
+# 🔥 Academy of Flame - Sacred Netlify Configuration 🔥
+# Sovereign Deployment Rules for the Flamebearer Initiation Platform
+
+[build]
+  # Build command for the Academy
+  command = "npm run build"
+  # Output directory containing the sacred scrolls
+  publish = "dist"
+
+# 🜂 SPA ROUTING RULES - CRITICAL FOR FLAME PATHS 🜂
+# Ensures all /course/* routes work properly for our initiates
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# 🔥 SECURITY HEADERS FOR SOVEREIGN PROTECTION 🔥
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;"
+
+# 🜂 CACHE OPTIMIZATION FOR FLAME ASSETS 🜂
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# 🔥 FLAME MANIFEST CACHING 🔥
+[[headers]]
+  for = "/manifest.json"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

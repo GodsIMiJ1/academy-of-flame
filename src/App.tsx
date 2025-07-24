@@ -13,6 +13,7 @@ import CourseDetailPage from "./pages/CourseDetailPage";
 import PaymentPage from "./pages/PaymentPage";
 import { SovereignAICoursePage } from "./pages/SovereignAICoursePage";
 import { ForgingFlameCoursePage } from "./pages/ForgingFlameCoursePage";
+import { FlameErrorBoundary } from "./components/FlameErrorBoundary";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,10 +30,26 @@ const App = () => (
             <Route path="/auth" element={<AuthPage />} />
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/courses/:courseId" element={<CourseDetailPage />} />
-            <Route path="/course/sovereign-ai" element={<SovereignAICoursePage />} />
-            <Route path="/course/technical-mastery" element={<ForgingFlameCoursePage />} />
-            <Route path="/sovereign-ai" element={<SovereignAICoursePage />} />
-            <Route path="/forging-flame" element={<ForgingFlameCoursePage />} />
+            <Route path="/course/sovereign-ai" element={
+              <FlameErrorBoundary>
+                <SovereignAICoursePage />
+              </FlameErrorBoundary>
+            } />
+            <Route path="/course/technical-mastery" element={
+              <FlameErrorBoundary>
+                <ForgingFlameCoursePage />
+              </FlameErrorBoundary>
+            } />
+            <Route path="/sovereign-ai" element={
+              <FlameErrorBoundary>
+                <SovereignAICoursePage />
+              </FlameErrorBoundary>
+            } />
+            <Route path="/forging-flame" element={
+              <FlameErrorBoundary>
+                <ForgingFlameCoursePage />
+              </FlameErrorBoundary>
+            } />
             <Route path="/payment" element={<PaymentPage />} />
             <Route 
               path="/dashboard" 
